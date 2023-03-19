@@ -30,7 +30,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.sass"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -65,12 +65,15 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "my-ang:build:production"
+              "browserTarget": "my-ang:build:production",
+              "disableHostCheck":true
             },
             "development": {
-              "browserTarget": "my-ang:build:development"
+              "browserTarget": "my-ang:build:development",
+              "allowedHosts": ["3148k433o8.zicp.fun"]
             }
           },
+
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
@@ -93,12 +96,15 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.sass"
+              "src/styles.scss"
             ],
             "scripts": []
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
