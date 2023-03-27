@@ -52,12 +52,13 @@ header {
             border-radius: 9px;
             width: 100px;
             height: 30px;
+            margin-right: 5px;
+
             background-color: #415D65;
             color: white;
             text-align: center;
             @media screen and (max-width: 480px) {
                 width: 60px;
-                margin-right: 5px;
               }
         }
 

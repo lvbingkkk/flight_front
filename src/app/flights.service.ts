@@ -41,19 +41,39 @@ export class FlightsService {
     return this.http.get(`${this.baseurl}/cities/destinations`);
   }
 
+  updateFlight(flight: Flight) {
+    // return this.http.post(`${this.baseurl}/${flight.id}/update`,flight);
+    return this.http.patch(`${this.baseurl}/${flight.id}/update`,flight);
+
+  }
+
   postFlight(flight: Flight) {
     return this.http.post(this.baseurl,flight).subscribe(
-      data =>{
-      console.log (data,'date posted to server!');
-      window.alert("添加新航班成功!")
+      {
+        next(response) { console.log(response,'date posted to server!');
+                window.alert("添加新航班成功!");
+                document.location.reload();
+        },
+        error(err) { console.error('Error: ' + err); window.alert("添加新航班失败!")},
+        complete() { console.log('Completed'); }
+      }
 
-      document.location.reload();
+    //   data =>{
+    //   console.log (data,'date posted to server!');
+    //   window.alert("添加新航班成功!")
+    //   document.location.reload();
+    // },
 
-    }
+    // error=>{ console.log ('date posted error!');
+    // window.alert("添加新航班失败!")
+    // }
+    // }
     )
   }
 
   deleteFlight(id: number) {
+    return this.http.post(`${this.baseurl}/${id}/delete`, null);
+    // return this.http.delete(`${this.baseurl}/${id}/delete`);
 
   }
 
